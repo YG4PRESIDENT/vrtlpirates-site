@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VRTL Pirates</title>
+  <meta name="description" content="VRTL Pirates — coming soon." />
+  <link rel="preload" as="image" href="/assets/%40vrtlPirates.png" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <main class="scene" aria-label="Sailing ship animation">
+    <div class="ocean" aria-hidden="true">
+      <div class="wave wave-back"></div>
+      <div class="wave wave-front"></div>
+    </div>
+    <img class="ship" src="/assets/%40vrtlPirates.png" alt="Pirate ship" />
+    <h1 class="sr-only">VRTL Pirates</h1>
+    <footer class="notice">VRTL Pirates</footer>
+  </main>
+  <script>
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.classList.add('reduced-motion');
+    }
+  </script>
+</body>
+</html> 
