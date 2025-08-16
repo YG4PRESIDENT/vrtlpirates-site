@@ -76,7 +76,7 @@ body {
   position: absolute;
   width: min(640px, 60vw);
   max-width: 90%;
-  bottom: 38%;
+  bottom: 24%;
   left: -40%;
   transform-origin: 50% 80%;
   filter: drop-shadow(0 6px 12px rgba(25, 255, 109, 0.15));
