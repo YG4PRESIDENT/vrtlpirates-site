@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>VRTL Pirates</title>
-  <meta name="description" content="VRTL Pirates — coming soon." />
+  <meta name="description" content="Professional AEO/SEO Agency. Contact us for digital marketing services." />
   <link rel="preload" as="image" href="/assets/%40vrtlPirates.png" />
   <link rel="stylesheet" href="/styles.css" />
 </head>
@@ -16,12 +16,53 @@
     </div>
     <img class="ship" src="/assets/%40vrtlPirates.png" alt="Pirate ship" />
     <h1 class="sr-only">VRTL Pirates</h1>
+    
+    <!-- Contact Form -->
+    <div class="contact-section">
+      <div class="contact-container">
+        <h2 class="contact-title">Set Sail With Us</h2>
+        <p class="contact-subtitle">Ready to conquer the digital seas? Drop us a message.</p>
+        <form class="contact-form" id="contactForm">
+          <div class="form-group">
+            <input type="text" id="name" name="name" placeholder="Your Name" required class="form-input">
+          </div>
+          <div class="form-group">
+            <input type="email" id="email" name="email" placeholder="Your Email" required class="form-input">
+          </div>
+          <div class="form-group">
+            <input type="text" id="company" name="company" placeholder="Company (Optional)" class="form-input">
+          </div>
+          <div class="form-group">
+            <textarea id="message" name="message" placeholder="Tell us about your SEO/AEO needs..." required class="form-input form-textarea"></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+    
     <footer class="notice">VRTL Pirates</footer>
   </main>
   <script>
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       document.documentElement.classList.add('reduced-motion');
     }
+    
+    // Contact form handling
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const formData = new FormData(this);
+      const name = formData.get('name');
+      const email = formData.get('email');
+      const company = formData.get('company');
+      const message = formData.get('message');
+      
+      const subject = `New Contact from ${name}${company ? ` (${company})` : ''}`;
+      const body = `Name: ${name}\nEmail: ${email}\n${company ? `Company: ${company}\n` : ''}\nMessage:\n${message}`;
+      
+      const mailtoLink = `mailto:vrtlpiratesllc@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailtoLink;
+    });
   </script>
 </body>
 </html> 
