@@ -86,14 +86,8 @@
       submitBtn.disabled = true;
       
       try {
-        // Submit form data to Web3Forms using FormData (recommended method)
+        // Submit form data to Web3Forms using FormData
         const formData = new FormData(this);
-        
-        // Debug: Log what we're sending
-        console.log('Sending form data:');
-        for (let [key, value] of formData.entries()) {
-          console.log(key, value);
-        }
         
         const response = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
@@ -101,7 +95,6 @@
         });
         
         const result = await response.json();
-        console.log('Response:', result);
         
         if (result.success) {
           // Show success message after a short delay
@@ -110,8 +103,6 @@
             document.getElementById('contactSuccessView').style.display = 'block';
           }, 800);
         } else {
-          // Log the exact error for debugging
-          console.error('Form submission failed:', result);
           throw new Error(result.message || 'Form submission failed');
         }
         
@@ -121,9 +112,9 @@
         btnLoading.style.display = 'none';
         submitBtn.disabled = false;
         
-        // Show detailed error message for debugging
+        // Show user-friendly error message
+        alert('Something went wrong. Please try again or contact us directly at virtualpiratesllc@gmail.com');
         console.error('Form submission error:', error);
-        alert(`Form submission failed: ${error.message}\n\nPlease try again or contact us directly at virtualpiratesllc@gmail.com`);
       }
     });
     
