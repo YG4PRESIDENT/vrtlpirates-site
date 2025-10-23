@@ -24,24 +24,103 @@ body {
   isolation: isolate;
 }
 
-/* Contact Form Styles */
-.contact-section {
+/* Contact CTA Button */
+.contact-cta {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.5rem;
+  background: linear-gradient(135deg, var(--accent) 0%, #0f8a3a 100%);
+  border: none;
+  border-radius: 50px;
+  color: #0a0a0a;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(25, 255, 109, 0.3);
+}
+
+.contact-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(25, 255, 109, 0.4);
+}
+
+.cta-icon {
+  font-size: 1.2rem;
+}
+
+.cta-text {
+  letter-spacing: 0.02em;
+}
+
+/* Contact Modal */
+.contact-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.contact-backdrop {
   position: absolute;
-  top: 10%;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
-  width: min(90vw, 480px);
-  backdrop-filter: blur(8px);
-  background: rgba(10, 10, 10, 0.85);
-  border: 1px solid rgba(25, 255, 109, 0.2);
-  border-radius: 12px;
-  padding: 2rem;
-  box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.4),
-    0 0 20px rgba(25, 255, 109, 0.1);
-  max-height: 80vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(4px);
+}
+
+.contact-section {
+  position: relative;
+  z-index: 1001;
+  width: min(90vw, 500px);
+  max-height: 85vh;
   overflow-y: auto;
+  backdrop-filter: blur(12px);
+  background: rgba(10, 10, 10, 0.95);
+  border: 1px solid rgba(25, 255, 109, 0.3);
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.6),
+    0 0 30px rgba(25, 255, 109, 0.15);
+}
+
+.close-modal {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(25, 255, 109, 0.1);
+  border: 1px solid rgba(25, 255, 109, 0.3);
+  border-radius: 50%;
+  color: var(--accent);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  line-height: 1;
+}
+
+.close-modal:hover {
+  background: rgba(25, 255, 109, 0.2);
+  transform: rotate(90deg);
 }
 
 .contact-container {
@@ -406,11 +485,21 @@ body {
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
+  .contact-cta {
+    top: 1rem;
+    right: 1rem;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9rem;
+  }
+  
+  .cta-icon {
+    font-size: 1rem;
+  }
+  
   .contact-section {
     width: 95vw;
-    padding: 1.5rem;
-    top: 5%;
-    max-height: 70vh;
+    padding: 2rem 1.5rem;
+    max-height: 90vh;
   }
   
   .contact-title {
@@ -433,8 +522,21 @@ body {
 }
 
 @media (max-width: 480px) {
+  .contact-cta {
+    padding: 0.65rem 1rem;
+    font-size: 0.85rem;
+  }
+  
+  .cta-text {
+    display: none;
+  }
+  
+  .cta-icon {
+    font-size: 1.3rem;
+  }
+  
   .contact-section {
-    padding: 1.25rem;
+    padding: 1.5rem 1.25rem;
     border-radius: 8px;
   }
   

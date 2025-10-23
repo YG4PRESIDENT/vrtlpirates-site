@@ -17,9 +17,18 @@
     <img class="ship" src="/assets/%40vrtlPirates.png" alt="Pirate ship" />
     <h1 class="sr-only">VRTL Pirates</h1>
     
-    <!-- Contact Form -->
-    <div class="contact-section" id="contactSection">
+    <!-- Contact CTA Button -->
+    <button class="contact-cta" id="openContactBtn">
+      <span class="cta-icon">✉️</span>
+      <span class="cta-text">Get Started</span>
+    </button>
+    
+    <!-- Contact Form Modal (Hidden by default) -->
+    <div class="contact-modal" id="contactModal" style="display: none;">
+      <div class="contact-backdrop" id="contactBackdrop"></div>
+      <div class="contact-section" id="contactSection">
       <div class="contact-container">
+        <button class="close-modal" id="closeModalBtn" aria-label="Close">✕</button>
         <div class="contact-form-view" id="contactFormView">
           <h2 class="contact-title">Set Sail With Us</h2>
           <p class="contact-subtitle">Ready to conquer the digital seas? Drop us a message.</p>
@@ -64,6 +73,7 @@
         </div>
       </div>
     </div>
+    </div>
     
     <!-- Business Information Section -->
     <div class="business-info">
@@ -97,6 +107,33 @@
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       document.documentElement.classList.add('reduced-motion');
     }
+    
+    // Contact modal toggle functionality
+    const contactModal = document.getElementById('contactModal');
+    const openContactBtn = document.getElementById('openContactBtn');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const contactBackdrop = document.getElementById('contactBackdrop');
+    
+    function openModal() {
+      contactModal.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function closeModal() {
+      contactModal.style.display = 'none';
+      document.body.style.overflow = '';
+    }
+    
+    openContactBtn.addEventListener('click', openModal);
+    closeModalBtn.addEventListener('click', closeModal);
+    contactBackdrop.addEventListener('click', closeModal);
+    
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && contactModal.style.display === 'block') {
+        closeModal();
+      }
+    });
     
     // Contact form handling with Web3Forms
     document.getElementById('contactForm').addEventListener('submit', async function(e) {
