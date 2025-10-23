@@ -7,21 +7,25 @@
 }
 
 * { box-sizing: border-box; }
-html, body { height: 100%; }
-body {
+html, body {
   margin: 0;
+  padding: 0;
+}
+body {
   background: var(--bg);
   color: var(--accent);
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
-  overflow: hidden;
 }
 
 .scene {
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100vw;
-  height: 100dvh;
+  height: 100vh;
   overflow: hidden;
   isolation: isolate;
+  z-index: 1;
 }
 
 /* Contact CTA Button */
@@ -70,6 +74,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow-y: auto; 
+  overscroll-behavior: contain;
   animation: fadeIn 0.3s ease-out;
 }
 
