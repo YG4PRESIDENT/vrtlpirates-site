@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>VRTL Pirates</title>
-  <meta name="description" content="Professional AEO/SEO Agency. Contact us for digital marketing services." />
+  <meta name="description" content="Custom Mobile App Development & Communication Solutions. We build apps with Telnyx integration, iMessage extensions, and SMS functionality." />
   <link rel="preload" as="image" href="/assets/%40vrtlPirates.png" />
   <link rel="stylesheet" href="/styles.css" />
 </head>
@@ -55,7 +55,23 @@
               <input type="text" id="company" name="company" placeholder="Company (Optional)" class="form-input">
             </div>
             <div class="form-group">
-              <textarea id="message" name="message" placeholder="Tell us about your SEO/AEO needs..." required class="form-input form-textarea"></textarea>
+              <input type="tel" id="phone" name="phone" placeholder="Phone Number (Required for SMS)" required class="form-input" pattern="[0-9+\-\s()]+">
+            </div>
+            <div class="form-group">
+              <textarea id="message" name="message" placeholder="Tell us about your app development needs..." required class="form-input form-textarea"></textarea>
+            </div>
+            <div class="form-group">
+              <label class="sms-consent-label">
+                <input type="checkbox" id="smsConsent" name="sms_consent" required class="sms-checkbox">
+                <span class="sms-consent-text">
+                  By checking this box and providing my phone number, I consent to receive automated SMS messages from VRTL Pirates at the number provided, including activation links and service notifications. Consent is not required to purchase. Message frequency varies. Message and data rates may apply. Reply STOP to opt-out, HELP for help.
+                </span>
+              </label>
+            </div>
+            <div class="form-group">
+              <p class="sms-disclosure">
+                By submitting this form, you agree to our <a href="/terms.html" target="_blank">Terms of Service</a> and <a href="/privacy.html" target="_blank">Privacy Policy</a>.
+              </p>
             </div>
             <button type="submit" class="form-submit" id="submitBtn">
               <span class="btn-text">Send Message</span>
@@ -79,7 +95,7 @@
     <div class="business-info">
       <div class="info-content">
         <h2 class="info-title">Vrtl Pirates LLC</h2>
-        <p class="info-subtitle">Professional AEO/SEO Agency</p>
+        <p class="info-subtitle">Custom Mobile App Development & Communication Solutions</p>
         
         <div class="info-details">
           <div class="info-item">
@@ -89,7 +105,7 @@
             <strong>Email:</strong> <a href="mailto:virtualpiratesllc@gmail.com">virtualpiratesllc@gmail.com</a>
           </div>
           <div class="info-item">
-            <strong>Services:</strong> Search Engine Optimization (SEO), Answer Engine Optimization (AEO), Digital Marketing Strategy, Content Optimization, Technical SEO Audits, Local SEO Services
+            <strong>Services:</strong> Mobile Application Development, Messaging Platform Integration (Telnyx), iMessage Extensions, SMS/MMS Functionality, Communication Tool Development, Custom Software Solutions
           </div>
         </div>
         
